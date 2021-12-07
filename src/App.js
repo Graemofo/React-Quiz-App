@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header';
 import TeamSection from './Components/TeamSection';
 import Logo from './Components/Logo';
+import QuestionSection from './Components/QuestionSection';
 
 function App() {
   const [team, setTeam] = useState([]);
@@ -17,6 +18,7 @@ function App() {
       <Logo />
       <Header sendTeam={getTeamNameHandler} />
       <TeamSection team={team} />
+      <QuestionSection />
     </>
   );
 }

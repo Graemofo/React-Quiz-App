@@ -1,0 +1,32 @@
+.answer {
+  width: 46%;
+  text-align: left;
+  border: 1px solid white;
+  display: flex;
+
+  border-radius: 6px;
+  margin: 1rem;
+  vertical-align: middle;
+  float: left;
+}
+.answer h3 {
+  color: white;
+  padding: 5px;
+  margin: auto;
+  vertical-align: baseline;
+}
+
+.answer button {
+  color: white;
+  background-color: #3b53cd;
+  width: 100px;
+  border: 1px solid #ccc;
+
+  box-sizing: border-box;
+  padding: 8px 8px;
+}
+
+.answer button:hover {
+  background-color: cornflowerblue; /* Green */
+  color: white;
+}

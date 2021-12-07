@@ -1,4 +1,5 @@
 .teamSection {
+  border: 1px solid white;
   justify-content: space-between;
   background: cornflowerblue;
   padding: 0.5rem;
