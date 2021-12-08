@@ -10,7 +10,6 @@ const TeamRow = (props) => {
   return (
     <div className={styles.teamrow}>
       <button className={style} type='button' onClick={fiftyFifty}>
-        {' '}
         50/50
       </button>
       <h1 className={styles.teamrow.name}>{props.team}</h1>
