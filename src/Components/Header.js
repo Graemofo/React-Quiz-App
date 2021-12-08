@@ -32,6 +32,7 @@ const Header = (props) => {
   };
   const onSubmitGameHandler = (event) => {
     event.preventDefault();
+    props.startGame(category, raceTo, true);
     console.log('onGameSubmit Hit', category, raceTo);
   };
 

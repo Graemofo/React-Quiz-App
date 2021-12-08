@@ -14,7 +14,7 @@ const TeamRow = (props) => {
         50/50
       </button>
       <h1 className={styles.teamrow.name}>{props.team}</h1>
-      <h1>Score: 0</h1>
+      <h1>0</h1>
     </div>
   );
 };
