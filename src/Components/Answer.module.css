@@ -17,16 +17,15 @@
 }
 
 .answer button {
-  color: white;
+  color: black;
   background-color: #3b53cd;
   width: 100px;
   border: 1px solid #ccc;
-
   box-sizing: border-box;
   padding: 8px 8px;
 }
 
 .answer button:hover {
-  background-color: cornflowerblue; /* Green */
+  background-color: cornflowerblue;
   color: white;
 }
