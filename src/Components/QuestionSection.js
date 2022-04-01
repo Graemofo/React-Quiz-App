@@ -11,32 +11,32 @@ const DUMMY_DATA = {
   answer_d: 'Arctic Ocean',
 };
 
-const newArray = [
-  {
-    name: 'Grame',
-    age: 30,
-  },
-  {
-    name: 'Billy',
-    age: 40,
-  },
-  {
-    name: 'Zola',
-    age: 50,
-  },
-];
-
 const QuestionSection = (props) => {
-  const [questions, setQuestions] = useState([]);
-  const [counter, setCounter] = useState(1);
-  // const [question, setQuestion] = useState('');
+  const [questions, setQuestions] = useState([{}]);
+  const [counter, setCounter] = useState(0);
+  const [question, setQuestion] = useState('');
 
-  //useEffect(() => {}, [counter]);
+  useEffect(() => {
+    if (props === null) {
+      console.log('Props Null');
+    }
+    if (props !== null) {
+      console.log('Props', props);
 
-  //console.log('Question Section Hit', props.questions.results);
-  console.log(newArray);
-  console.log(newArray[1].name);
-  console.log(props.questions.results);
+      //setQuestions(props.questions.results);
+      // setCounter(0);
+      // if (questions[counter] != null) {
+      // setQuestion(questions[counter]?.question.toString());
+      // console.log(props.questions.results[counter].question);
+      //  }
+    }
+    // if (props.questions.results) {
+    // console.log('Questions', questions);
+    // console.log('Question', question);
+    // console.log('Counter', counter);
+    //  }
+    // console.log('QuestionSection array: ', questions);
+  }, [props]);
 
   return (
     <div className={styles.questionSection}>

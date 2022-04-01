@@ -4,6 +4,8 @@ import Header from './Components/Header';
 import TeamSection from './Components/TeamSection';
 import Logo from './Components/Logo';
 import QuestionSection from './Components/QuestionSection';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 //let jsondata = [];
 
@@ -16,7 +18,7 @@ function App() {
   const [questionUrl, setQuestionUrl] = useState(
     'https://opentdb.com/api.php?amount=50&category=9'
   );
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = React.useState([]);
 
   useEffect(() => {
     if (gameReady) {
@@ -26,15 +28,28 @@ function App() {
           return response.json();
         })
         .then((data) => {
-          // console.log(data);
+          // console.log('Data ', data);
           // console.log('Question:  ' + data.results[0].question);
-          //   jsondata = data;
-          setQuestions(data);
+          const questionArray = data.results;
+          // console.log('Array ', questionArray);
+          setQuestions(questionArray);
+          // console.log('Questions array ', questions);
         });
     } else {
       console.log('Game is not ready');
     }
   }, [gameReady, questionUrl]);
+
+  const questionReducer = function (state = [], action) {
+    switch (action.type) {
+      case 'ADD_QUESTIONS':
+        return state + 1;
+      default:
+        return state;
+    }
+  };
+
+  let store = createStore(questionReducer);
 
   const getTeamNameHandler = (teamName) => {
     setTeam((teamArray) => [...teamArray, teamName]);
@@ -53,10 +68,12 @@ function App() {
 
   return (
     <>
-      <Logo />
-      <Header sendTeam={getTeamNameHandler} startGame={startGameHandler} />
-      {teamReady && <TeamSection team={team} />}
-      {gameReady && <QuestionSection questions={questions} />}
+      <Provider store={store}>
+        <Logo />
+        <Header sendTeam={getTeamNameHandler} startGame={startGameHandler} />
+        {teamReady && <TeamSection team={team} />}
+        {gameReady && <QuestionSection questions={questions} />}
+      </Provider>
     </>
   );
 }
